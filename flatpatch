@@ -13,6 +13,16 @@ systemctl disable snapd
 apt purge -y snapd gnome-software-plugin-snap
 rm -rf ~/snap/
 rm -rf /var/cache/snapd/
+cd /etc/apt/preferences.d/
+cat > nosnap.pref <<EOF
+# To prevent repository packages from triggering the installation of snap,
+# this file forbids snapd from being installed by APT.
+
+Package: snapd
+Pin: release a=*
+Pin-Priority: -10
+EOF
+cd ..
 
 #Install Flatpak
 # Latest flatpak package is available on Ubuntu 22.04, if used on older Versions uncomment the PPA
