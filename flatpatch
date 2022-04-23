@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+#Check Privileges
+if [ $(whoami) != 'root' ]; then
+  echo "Please run with sudo privileges"
+  exit 0
+else
+
+#Uninstall snapd
+snap remove $(snap list | awk '!/^Name|^core/ {print $1}')
+systemctl stop snapd
+systemctl disable snapd
+apt purge -y snapd gnome-software-plugin-snap
+rm -rf ~/snap/
+rm -rf /var/cache/snapd/
+
+#Install Flatpak
+# Latest flatpak package is available on Ubuntu 22.04, if used on older Versions uncomment the PPA
+#add-apt-repository ppa:alexlarsson/flatpak
+apt update
+apt install -y flatpak gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+fi

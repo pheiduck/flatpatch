@@ -1,0 +1,15 @@
+name: Unittest Ubuntu-latest
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Run script
+        run: |
+          sudo bash flatpatch
+          

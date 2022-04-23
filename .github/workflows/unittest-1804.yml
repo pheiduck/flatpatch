@@ -1,0 +1,15 @@
+name: Unittest Ubuntu-18.04
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Run script
+        run: |
+          sudo sed -i '19s/.//' flatpatch; sudo bash flatpatch
+
