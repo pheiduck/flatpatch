@@ -23,3 +23,7 @@ cd flatpatch
 sed -i '29s/.//' flatpatch
 sudo ./flatpatch
 ```
+
+# Introduction video
+
+[![Introduction of Flatpatch](https://img.youtube.com/vi/Z6TxxSECv6Y/0.jpg)](https://www.youtube.com/embed/Z6TxxSECv6Y)
