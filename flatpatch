@@ -25,8 +25,8 @@ rm -rf ~/snap/
 rm -rf /var/cache/snapd/
 
 #Install Flatpak
-# Latest flatpak package is available on Ubuntu 22.04, if used on older Versions uncomment the PPA
-#add-apt-repository ppa:alexlarsson/flatpak
+# With older Ubuntu versions, the official Flatpak PPA is the recommended way to install Flatpak.
+#sudo add-apt-repository ppa:flatpak/stable
 apt update
 apt install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
