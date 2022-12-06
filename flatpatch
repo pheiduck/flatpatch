@@ -21,8 +21,11 @@ snap remove --purge $(snap list | awk '!/^Name|^core/ {print $1}')
 systemctl stop snapd
 systemctl disable snapd
 apt purge -y snapd gnome-software-plugin-snap
-rm -rf ~/snap/
-rm -rf /var/cache/snapd/
+rm -rf ~/snap
+rm -rf /snap
+rm -rf /var/snap
+rm -rf /var/lib/snapd
+rm -rf /var/cache/snapd
 
 #Install Flatpak
 # With older Ubuntu versions, the official Flatpak PPA is the recommended way to install Flatpak.
