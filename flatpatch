@@ -16,7 +16,7 @@ Package: snapd
 Pin: release a=*
 Pin-Priority: -10
 EOF
-cd ..
+cd
 snap remove --purge $(snap list | awk '!/^Name|^core/ {print $1}')
 systemctl stop snapd
 systemctl stop snapd.socket
