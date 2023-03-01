@@ -30,8 +30,7 @@ rm -rf /var/lib/snapd
 rm -rf /var/cache/snapd
 
 #Install Flatpak
-# With older Ubuntu versions, the official Flatpak PPA is the recommended way to install Flatpak.
-#add-apt-repository ppa:flatpak/stable
+add-apt-repository ppa:flatpak/stable
 apt update
 apt install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
