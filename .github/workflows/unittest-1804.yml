@@ -11,5 +11,5 @@ jobs:
 
       - name: Run script
         run: |
-          sudo sed -i '29s/.//' flatpatch; sudo bash flatpatch
+          sudo bash flatpatch
 
