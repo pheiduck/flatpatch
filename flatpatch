@@ -31,7 +31,7 @@ systemctl stop snapd
 systemctl stop snapd.socket
 systemctl disable snapd
 systemctl disable snapd.socket
-apt purge -y snapd gnome-software-plugin-snap
+apt-get purge -y snapd gnome-software-plugin-snap
 rm -rf ~/snap
 rm -rf /snap
 rm -rf /var/snap
@@ -40,7 +40,7 @@ rm -rf /var/cache/snapd
 
 #Install Flatpak
 add-apt-repository ppa:flatpak/stable
-apt update
+apt-get update
 apt install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
