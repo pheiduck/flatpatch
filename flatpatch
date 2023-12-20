@@ -31,8 +31,8 @@ systemctl stop snapd
 systemctl stop snapd.socket
 systemctl disable snapd
 systemctl disable snapd.socket
-systemctl daemon-reload
 apt-get purge -y snapd gnome-software-plugin-snap
+systemctl daemon-reload
 rm -rf ~/snap
 rm -rf /snap
 rm -rf /var/snap
