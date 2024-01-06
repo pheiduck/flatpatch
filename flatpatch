@@ -42,6 +42,6 @@ rm -rf /var/cache/snapd
 #Install Flatpak
 add-apt-repository ppa:flatpak/stable
 apt-get update
-apt install -y flatpak gnome-software-plugin-flatpak
+apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
