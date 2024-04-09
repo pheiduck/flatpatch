@@ -27,14 +27,8 @@ Pin-Priority: -10
 EOF
 popd
 snap remove --purge $(snap list | awk '!/^Name|^core/ {print $1}')
-systemctl stop snapd
-systemctl stop snapd.socket
-systemctl stop snap.lxd.daemon.unix.socket
-systemctl stop snap.lxd.user-daemon.unix.socket
-systemctl disable snapd
-systemctl disable snapd.socket
-systemctl disable snap.lxd.daemon.unix.socket
-systemctl disable snap.lxd.user-daemon.unix.socket
+systemctl stop snapd snapd.socket snap.lxd.daemon.unix.socket snap.lxd.user-daemon.unix.socket
+systemctl disable snapd snapd.socket snap.lxd.daemon.unix.socket snap.lxd.user-daemon.unix.socket
 apt-get purge -y snapd gnome-software-plugin-snap
 systemctl daemon-reload
 rm -rfv ~/snap
