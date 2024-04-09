@@ -31,11 +31,7 @@ systemctl stop snapd snapd.socket snap.lxd.daemon.unix.socket snap.lxd.user-daem
 systemctl disable snapd snapd.socket snap.lxd.daemon.unix.socket snap.lxd.user-daemon.unix.socket
 apt-get purge -y snapd gnome-software-plugin-snap
 systemctl daemon-reload
-rm -rfv ~/snap
-rm -rfv /snap
-rm -rfv /var/snap
-rm -rfv /var/lib/snapd
-rm -rfv /var/cache/snapd
+rm -rfv ~/snap /snap /var/snap /var/lib/snapd /var/cache/snapd
 
 #Install Flatpak
 add-apt-repository ppa:flatpak/stable
