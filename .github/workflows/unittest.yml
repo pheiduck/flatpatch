@@ -1,19 +1,14 @@
 name: Unittest Ubuntu
-
 on:
   push:
-
 jobs:
   build:
     strategy:
       matrix:
         os: [ubuntu-20.04, ubuntu-latest]
     runs-on: ${{ matrix.os }}
-
     steps:
       - uses: actions/checkout@main
-
       - name: Run script
         run: |
           sudo bash flatpatch
-          
