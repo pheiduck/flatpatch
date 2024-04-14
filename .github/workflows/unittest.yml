@@ -16,5 +16,5 @@ jobs:
           fi
       - name: Run script with sudo
         run: |
-          sudo sed -e "s/stable/development/g" >> flatpatch
+          sudo sed -i "s/stable/development/g" >> flatpatch
           sudo bash flatpatch
