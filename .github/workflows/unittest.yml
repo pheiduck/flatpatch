@@ -16,4 +16,7 @@ jobs:
           fi
       - name: Run script with sudo
         run: |
-          sudo bash flatpatch
+          sudo -i
+          if [ $(whoami) == 'root' ]; then
+            bash flatpatch
+          fi
