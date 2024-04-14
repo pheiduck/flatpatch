@@ -11,4 +11,8 @@ jobs:
       - uses: actions/checkout@main
       - name: Run script
         run: |
-          sudo bash flatpatch
+          if [ $(whoami) != 'root' ]; then
+            bash flatpatch
+          else
+            sudo bash flatpatch
+          fi
