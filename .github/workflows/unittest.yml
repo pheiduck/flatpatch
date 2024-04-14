@@ -9,10 +9,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@main
-      - name: Run script
+      - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
             bash flatpatch
-          else
-            sudo bash flatpatch
+            exit 0
           fi
+      - name: Run script with sudo
+        run: |
+          sudo bash flatpatch
