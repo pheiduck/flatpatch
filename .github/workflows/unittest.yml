@@ -12,8 +12,7 @@ jobs:
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
-            bash flatpatch
-            exit 0
+            bash flatpatch || true
           fi
       - name: Run script with sudo
         run: |
