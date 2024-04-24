@@ -9,13 +9,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@main
+
+      - run: sudo rm -f /etc/apt/sources.list.d/*
+
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
             bash flatpatch || true
           fi
+
       - name: Run script with sudo
         run: |
-          sudo rm -f /etc/apt/sources.list.d/*
           sudo sed -i 's/stable/development/' "flatpatch"
           sudo bash flatpatch
