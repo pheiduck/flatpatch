@@ -16,5 +16,6 @@ jobs:
           fi
       - name: Run script with sudo
         run: |
+          sudo rm -f /etc/apt/sources.list.d/*
           sudo sed -i 's/stable/development/' "flatpatch"
           sudo bash flatpatch
