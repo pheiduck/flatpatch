@@ -10,11 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@main
 
-      - name: Setup ubuntu-24.04
-        run: sudo sed -i 's/jammy/noble/' /etc/apt/sources.list && sudo apt-get update
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-
       - run: sudo rm -f /etc/apt/sources.list.d/*
+
+      - name: Setup ubuntu-24.04
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: |
+          sudo sed -i 's/jammy/noble/' /etc/apt/sources.list
+          sudo apt-get update
 
       - name: Run script without sudo
         run: |
