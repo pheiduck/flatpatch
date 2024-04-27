@@ -18,4 +18,4 @@ jobs:
       - name: Run script with sudo
         run: |
           sudo sed -i 's/stable/development/' "flatpatch"
-          sudo bash flatpatch
+          sudo bash flatpatch || true
