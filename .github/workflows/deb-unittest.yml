@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     container: debian:latest
     steps:
+      - run: apt-get update && apt-get install sudo -y
       - uses: actions/checkout@main
 
       - name: Run script without sudo
