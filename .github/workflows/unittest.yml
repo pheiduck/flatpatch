@@ -1,8 +1,8 @@
-name: Unittest Ubuntu
+name: Unittests
 on:
   push:
 jobs:
-  build:
+  ubuntu-Unittest:
     strategy:
       matrix:
         os: [ubuntu-20.04, ubuntu-22.04, ubuntu-latest]
@@ -22,3 +22,23 @@ jobs:
         run: |
           sudo sed -i 's/stable/development/' "flatpatch"
           sudo bash flatpatch
+
+
+  debian-Unittest:
+    runs-on: ubuntu-latest
+    container: debian:latest
+    steps:
+      - run: apt-get update && apt-get install sudo -y
+
+      - uses: actions/checkout@main
+
+      - name: Run script without sudo
+        run: |
+          if [ $(whoami) != 'root' ]; then
+            bash flatpatch || true
+          fi
+
+      - name: Run script with sudo
+        run: |
+          sudo sed -i 's/stable/development/' "flatpatch"
+          sudo bash flatpatch || true
