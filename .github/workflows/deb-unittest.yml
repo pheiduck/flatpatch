@@ -1,0 +1,20 @@
+name: Unittest Debian
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: debian:latest
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Run script without sudo
+        run: |
+          if [ $(whoami) != 'root' ]; then
+            bash flatpatch || true
+          fi
+
+      - name: Run script with sudo
+        run: |
+          sudo sed -i 's/stable/development/' "flatpatch"
+          sudo bash flatpatch
