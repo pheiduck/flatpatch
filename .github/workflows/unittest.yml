@@ -12,12 +12,6 @@ jobs:
 
       - run: sudo rm -f /etc/apt/sources.list.d/*
 
-      - name: Setup ubuntu-24.04
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: |
-          sudo sed -i 's/jammy/noble/' /etc/apt/sources.list
-          sudo apt-get update
-
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
