@@ -5,13 +5,13 @@ jobs:
   ubuntu-Unittest:
     strategy:
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04]
+        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@main
 
       - run: sudo rm -f /etc/apt/sources.list.d/*
-
+        if: ${{ matrix.os != 'ubuntu-24.04' }}
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
@@ -40,5 +40,7 @@ jobs:
 
       - name: Run script with sudo
         run: |
+          if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
           sudo sed -i 's/stable/development/' "flatpatch"
+          fi
           sudo bash flatpatch || true

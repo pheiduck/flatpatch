@@ -31,9 +31,16 @@ systemctl disable snapd snapd.socket snap.lxd.daemon.unix.socket snap.lxd.user-d
 apt-get purge -y snapd gnome-software-plugin-snap
 systemctl daemon-reload
 rm -rfv ~/snap /snap /var/snap /var/lib/snapd /var/cache/snapd
+fi
 
+if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
 #Install Flatpak
 add-apt-repository ppa:flatpak/stable
+apt-get update
+apt-get install -y flatpak gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+else
+#Install Flatpak
 apt-get update
 apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
