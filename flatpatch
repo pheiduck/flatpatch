@@ -26,7 +26,7 @@ Pin-Priority: -10
 EOF
 popd
 snap remove --purge $(snap list | awk '!/^Name|^core/ {print $1}') 2> /dev/null
-apt-get purge -y snapd gnome-software-plugin-snap
+apt-get purge -y snapd gnome-software-plugin-snap 2> /dev/null
 rm -rfv ~/snap /snap /var/snap /var/lib/snapd /var/cache/snapd
 fi
 
