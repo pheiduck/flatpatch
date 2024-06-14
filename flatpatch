@@ -44,5 +44,5 @@ apt-get update
 apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
-echo "It's recommended to reboot the system!"
+echo "It's recommended to reboot the system! 'sudo systemctl reboot'"
 
