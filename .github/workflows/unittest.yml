@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     container: debian:latest
     steps:
-      - run: apt-get update && apt-get install sudo -y
+      - run: apt-get update && apt-get install -y sudo zsh
 
       - uses: actions/checkout@main
 
