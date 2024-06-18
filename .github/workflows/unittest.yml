@@ -15,13 +15,13 @@ jobs:
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
-            bash flatpatch || true
+            zsh flatpatch || true
           fi
 
       - name: Run script with sudo
         run: |
           sudo sed -i 's/stable/development/' "flatpatch"
-          sudo bash flatpatch
+          sudo zsh flatpatch
 
 
   debian-Unittest:
@@ -35,7 +35,7 @@ jobs:
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
-            bash flatpatch || true
+            zsh flatpatch || true
           fi
 
       - name: Run script with sudo
@@ -43,4 +43,4 @@ jobs:
           if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
           sudo sed -i 's/stable/development/' "flatpatch"
           fi
-          sudo bash flatpatch || true
+          sudo zsh flatpatch || true
