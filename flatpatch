@@ -28,11 +28,9 @@ Pin-Priority: -10
 EOF
 popd
 snap remove --purge $(snap list | awk '!/^Name|^core/ {print $1}') 2> /dev/null
-for s in `systemctl | grep snap | cut -d '.' -f 1`; do sudo systemctl disable --now $s; done 2> /dev/null
-for s in `systemctl | grep snapd | cut -d '.' -f 1`; do sudo systemctl disable --now $s; done 2> /dev/null
-systemctl daemon-reload 2> /dev/null
 apt-get purge -y snapd gnome-software-plugin-snap 2> /dev/null
 rm -rfv ~/snap /snap /var/snap /var/lib/snapd /var/cache/snapd
+systemctl daemon-reload
 fi
 
 if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
