@@ -16,7 +16,9 @@ elif [ $(grep ^ID= /etc/os-release | cut -d'=' -f2) != 'ubuntu' ]; then
   exit 1
 else
 
-#Uninstall snapd
+  RED='\033[0;31m'
+  NC='\033[0m'
+printf "%s\n" "${RED}Uninstall snapd...${NC}"
 pushd /etc/apt/preferences.d/
 cat > nosnap.pref <<EOF
 # To prevent repository packages from triggering the installation of snap,
@@ -40,7 +42,10 @@ apt-get update
 apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 else
-#Install Flatpak
+
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+printf "%s\n" "${GREEN}Install Flatpak...${NC}"
 apt-get update
 apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
