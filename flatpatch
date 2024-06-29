@@ -5,14 +5,14 @@
 if [ $(whoami) != 'root' ]; then
   YELLOW='\033[1;33m'
   NC='\033[0m'
-  echo "${YELLOW}WARNING: ${NC}Please run with sudo privileges."
+  printf "%s\n" "${YELLOW}WARNING: ${NC}Please run with sudo privileges."
   exit 1
 
 #Check OS
 elif [ $(grep ^ID= /etc/os-release | cut -d'=' -f2) != 'ubuntu' ]; then
   RED='\033[0;31m'
   NC='\033[0m'
-  echo "${RED}ERROR: ${NC}You are trying to install this on an unsupported distribution.\nOnly Ubuntu is supported."
+  printf "%s\n" "${RED}ERROR: ${NC}You are trying to install this on an unsupported distribution.\nOnly Ubuntu is supported."
   exit 1
 else
 
@@ -45,5 +45,5 @@ apt-get update
 apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
-echo "It's recommended to reboot the system! 'sudo systemctl reboot'"
+printf "%s\n" "It's recommended to reboot the system! 'sudo systemctl reboot'"
 
