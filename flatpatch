@@ -35,10 +35,10 @@ rm -rfv ~/snap /snap /var/snap /var/lib/snapd /var/cache/snapd
 systemctl daemon-reload
 fi
 
-if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
   GREEN='\033[0;32m'
   NC='\033[0m'
 echo "${GREEN}Install Flatpak...${NC}"
+if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
 add-apt-repository ppa:flatpak/stable
 apt-get update
 apt-get install -y flatpak gnome-software-plugin-flatpak
