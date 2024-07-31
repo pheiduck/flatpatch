@@ -49,4 +49,3 @@ else
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
 echo "It's recommended to reboot the system! 'sudo systemctl reboot'"
-
