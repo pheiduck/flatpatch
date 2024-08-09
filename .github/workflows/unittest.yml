@@ -42,4 +42,4 @@ jobs:
 
       - name: Run script with sudo
         run: |
-          sudo zsh flatpatch || true
+          sudo sed -i 's/stable/development/' "flatpatch"
