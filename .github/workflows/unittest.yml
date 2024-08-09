@@ -42,7 +42,4 @@ jobs:
 
       - name: Run script with sudo
         run: |
-          if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
-            sudo sed -i 's/stable/development/' "flatpatch"
-          fi
-          sudo zsh flatpatch || true
+          sudo sed -i 's/stable/development/' "flatpatch"

@@ -38,14 +38,8 @@ fi
   GREEN='\033[0;32m'
   NC='\033[0m'
 echo "${GREEN}Install Flatpak...${NC}"
-if [ $(grep ^VERSION_ID /etc/os-release | cut -d'"' -f2) != '24.04' ]; then
   add-apt-repository ppa:flatpak/stable
   apt-get update
   apt-get install -y flatpak gnome-software-plugin-flatpak
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-else
-  apt-get update
-  apt-get install -y flatpak gnome-software-plugin-flatpak
-  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-fi
 echo "It's recommended to reboot the system! 'sudo systemctl reboot'"
