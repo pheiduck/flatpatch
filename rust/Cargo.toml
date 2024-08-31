@@ -3,5 +3,16 @@ name = "flatpatch"
 version = "0.1.0"
 edition = "2021"
 
+authors = ["Philip Heiduck <flatpatch@github.com>"]
+description = "A Rust script to uninstall snapd and install Flatpak on Ubuntu"
+license = "Apache-2.0"
+repository = "https://github.com/yourusername/flatpatch"
+readme = "README.md"
+keywords = ["flatpak", "snapd", "ubuntu", "rust", "script"]
+categories = ["command-line-utilities", "system-tools"]
+
+[profile.release]
+opt-level = "z"
+
 [dependencies]
-users = "*"
+users = "0.11.0"
