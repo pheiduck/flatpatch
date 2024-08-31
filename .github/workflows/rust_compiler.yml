@@ -1,0 +1,28 @@
+name: Rust
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 0 * * *"
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Install Rust
+      run: |
+        rm -f ~/.cargo/bin/*
+        curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- -y
+    - name: Install toolchain
+      run: | 
+        rustup toolchain install nightly
+        rustup default nightly
+    - name: Build
+      run: |
+        cd flatpatch.rs
+        cargo build --release --verbose
+        sudo ./target/release/flatpatch
