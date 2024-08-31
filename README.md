@@ -7,12 +7,12 @@ flatpatch is a Script which uninstall snap from Ubuntu and install flatpak
 
 ```bash
 git clone https://github.com/pheiduck/flatpatch.git
-cd flatpatch
+cd flatpatch/bash
 sudo ./flatpatch
 ```
 or
 ```bash
-curl -sSL https://raw.githubusercontent.com/pheiduck/flatpatch/main/flatpatch | bash
+curl -sSL https://github.com/pheiduck/flatpatch/tree/main/bash/flatpatch | bash
 ```
 
 # Donation
