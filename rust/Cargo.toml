@@ -1,3 +1,5 @@
+// Copyright (c) Philip H.
+
 [package]
 name = "flatpatch"
 version = "0.1.0"
