@@ -23,6 +23,6 @@ jobs:
         rustup default nightly
     - name: Build
       run: |
-        cd flatpatch.rs
+        cd rust
         cargo build --release --verbose
         sudo ./target/release/flatpatch
