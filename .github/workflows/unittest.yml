@@ -17,11 +17,13 @@ jobs:
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
+            cd bash
             zsh flatpatch || true
           fi
 
       - name: Run script with sudo
         run: |
+          cd bash
           sudo sed -i 's/stable/development/' "flatpatch"
           sudo zsh flatpatch
 
@@ -37,9 +39,11 @@ jobs:
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
+            cd bash
             zsh flatpatch || true
           fi
 
       - name: Run script with sudo
         run: |
+          cd bash
           sudo sed -i 's/stable/development/' "flatpatch"
