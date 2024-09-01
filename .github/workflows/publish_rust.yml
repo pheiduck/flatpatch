@@ -1,0 +1,26 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: Publish binaries
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Build
+      run: cargo build --release
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@master
+      with:
+        repo_name: pheiduck/flatpatch
+        repo_token: ${{ secrets.ACCESS_TOKEN }}
+        file: target/release/flatpatch
+        asset_name: flatpatch
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "binaries for production use"
