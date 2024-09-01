@@ -19,7 +19,7 @@ jobs:
       with:
         repo_name: pheiduck/flatpatch
         repo_token: ${{ secrets.ACCESS_TOKEN }}
-        file: target/release/flatpatch
+        file: rust/target/release/flatpatch
         asset_name: flatpatch
         tag: ${{ github.ref }}
         overwrite: true
