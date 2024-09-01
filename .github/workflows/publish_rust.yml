@@ -11,7 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: Build
-      run: cargo build --release
+      run: |
+        cd rust
+        cargo build --release
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@master
       with:
