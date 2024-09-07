@@ -14,7 +14,8 @@ fn main() {
     let nc = "\x1b[0m";
 
     // Überprüfen, ob das Skript mit Root-Rechten ausgeführt wird
-    if env::var("USER").unwrap_or_default() != "root" {
+    let user = env::var("USER").unwrap_or_default();
+    if user != "root" {
         eprintln!("{}WARNING: {}Please run with sudo privileges.", yellow, nc);
         exit(1);
     }
