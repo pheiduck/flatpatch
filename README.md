@@ -14,6 +14,13 @@ or
 ```bash
 curl -sSL https://github.com/pheiduck/flatpatch/tree/main/bash/flatpatch | bash
 ```
+### Experimental
+
+```bash
+git clone https://github.com/pheiduck/flatpatch.git
+cd flatpatch/rust
+sudo ./flatpatch
+```
 
 # Donation
 <a href="https://ko-fi.com/pheiduck"><img src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white"/></a>
