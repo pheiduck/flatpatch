@@ -17,12 +17,6 @@ curl -sSL https://github.com/pheiduck/flatpatch/tree/main/bash/flatpatch | sh
 ### Experimental
 
 ```bash
-git clone https://github.com/pheiduck/flatpatch.git
-cd flatpatch/rust
-sudo ./flatpatch
-```
-or
-```bash
 curl -sSL https://github.com/pheiduck/flatpatch/releases/download/0.1.1/flatpatch | sh
 ```
 
