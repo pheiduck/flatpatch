@@ -21,8 +21,9 @@ jobs:
 
       - name: Run script with sudo
         run: |
+          sudo apt-get update && apt-get install -y sd
           cd bash
-          sudo sed -i 's/stable/development/' "flatpatch"
+          sudo sd stable development flatpatch
           sudo zsh flatpatch
 
 
