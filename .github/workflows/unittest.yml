@@ -10,7 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@main
 
-      - run: sudo apt-get install -y zsh
+      - name: Install Packages
+        run: |
+          sudo apt-get install -y zsh
+          cargo install sd
+          sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
 
       - name: Run script without sudo
         run: |
@@ -21,8 +25,6 @@ jobs:
 
       - name: Run script with sudo
         run: |
-          cargo install sd
-          sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
           cd bash
           sudo sd stable development flatpatch
           sudo zsh flatpatch
@@ -32,10 +34,15 @@ jobs:
     runs-on: ubuntu-latest
     container: debian:latest
     steps:
-      - run: apt-get update && apt-get install -y sudo zsh
+      - run: apt-get update && apt-get install -y sudo cargo
 
       - uses: actions/checkout@main
 
+      - name: Install Packages
+        run: |
+          sudo apt-get install -y zsh
+          cargo install sd
+          sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
@@ -46,4 +53,5 @@ jobs:
       - name: Run script with sudo
         run: |
           cd bash
-          sudo sed -i 's/stable/development/' "flatpatch"
+          sudo sd stable development flatpatch
+          zsh flatpatch || true
