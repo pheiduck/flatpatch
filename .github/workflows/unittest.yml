@@ -41,7 +41,7 @@ jobs:
       - name: Install Packages
         run: |
           sudo apt-get install -y zsh
-          cargo install sd
+          cargo install sd --locked
           sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
       - name: Run script without sudo
         run: |
