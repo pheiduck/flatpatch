@@ -17,7 +17,7 @@ curl -sSL https://github.com/pheiduck/flatpatch/tree/main/bash/flatpatch | sh
 ### Experimental
 
 ```bash
-curl -sSL https://github.com/pheiduck/flatpatch/releases/download/0.1.1/flatpatch | sh
+curl -sSL https://github.com/pheiduck/flatpatch/releases/download/0.1.0/flatpatch | sh
 ```
 
 # Donation
