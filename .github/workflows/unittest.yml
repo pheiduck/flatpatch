@@ -22,6 +22,7 @@ jobs:
       - name: Run script with sudo
         run: |
           cargo install sd
+          sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
           cd bash
           sudo sd stable development flatpatch
           sudo zsh flatpatch
