@@ -41,8 +41,7 @@ jobs:
       - name: Install Packages
         run: |
           sudo apt-get install -y zsh cargo curl
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-          rustup default stable
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
           cargo install sd
           sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
       - name: Run script without sudo
