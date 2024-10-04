@@ -34,14 +34,16 @@ jobs:
     runs-on: ubuntu-latest
     container: debian:latest
     steps:
-      - run: apt-get update && apt-get install -y sudo cargo
+      - run: apt-get update && apt-get install -y sudo
 
       - uses: actions/checkout@main
 
       - name: Install Packages
         run: |
-          sudo apt-get install -y zsh
-          cargo install sd --locked
+          sudo apt-get install -y zsh cargo
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          rustup default stable
+          cargo install sd
           sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
       - name: Run script without sudo
         run: |
