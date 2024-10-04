@@ -44,7 +44,7 @@ jobs:
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
           . "$HOME/.cargo/env"
           cargo install sd
-          sudo ln -s /home/runner/.cargo/bin/sd /usr/bin/sd
+          sudo ln -s /github/home/.cargo/bin/sd /usr/bin/sd
       - name: Run script without sudo
         run: |
           if [ $(whoami) != 'root' ]; then
