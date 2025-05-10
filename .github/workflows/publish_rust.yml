@@ -19,8 +19,7 @@ jobs:
         cargo build --release    
     - uses: actions/attest-build-provenance@main
       with:
-        artifact-path: out/artifact.txt
-
+        subject-path: rust/target/release/flatpatch
     - name: Upload attestation
       uses: actions/upload-artifact@main
       with:
