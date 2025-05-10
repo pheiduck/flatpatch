@@ -27,7 +27,6 @@ jobs:
       with:
         name: build-provenance
         path: |
-          provenance.intoto.json
           provenance.jws
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@master
