@@ -19,7 +19,7 @@ jobs:
         cargo build --release    
     - uses: actions/attest-build-provenance@main
       with:
-        subject-path: flatpatch
+        subject-path: /home/runner/work/flatpatch/flatpatch/rust/flatpatch
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@master
       with:
