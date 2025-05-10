@@ -32,7 +32,7 @@ jobs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@master
       with:
-        repo_token: ${{ secrets.ACCESS_TOKEN }}
+        github_token: ${{ secrets.ACCESS_TOKEN }}
         repo_name: pheiduck/flatpatch
         file: rust/target/release/flatpatch
         asset_name: flatpatch
