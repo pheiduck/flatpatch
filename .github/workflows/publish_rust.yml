@@ -1,5 +1,8 @@
 name: Publish (rust bin)
 
+permissions:
+  id-token: write
+
 on:
   push:
 
