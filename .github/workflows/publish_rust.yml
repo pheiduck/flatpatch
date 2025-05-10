@@ -26,8 +26,6 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: build-provenance
-        path: |
-          provenance.jws
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@master
       with:
